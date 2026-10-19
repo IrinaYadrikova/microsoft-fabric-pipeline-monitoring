@@ -103,7 +103,6 @@ The deliberately invalid ERP record causes the pipeline to report **FAILED**. Be
 
 ![Failed pipeline execution](dashboard-failure.png)
 
-> Add `dashboard-success.png` and `dashboard-failure.png` to the repository root if they are not already present.
 
 ## Security and reproducibility
 

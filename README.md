@@ -105,19 +105,6 @@ The deliberately invalid ERP record causes the pipeline to report **FAILED**. Be
 
 > Add `dashboard-success.png` and `dashboard-failure.png` to the repository root if they are not already present.
 
-## Repository structure
-
-```text
-.
-├── README.md
-├── dashboard.png
-├── architecture.svg
-├── dashboard-success.png   # upload your success screenshot
-└── dashboard-failure.png   # upload your failure screenshot
-```
-
-This repository currently documents the solution. Fabric notebook and pipeline exports can be added separately if they are safe to share.
-
 ## Security and reproducibility
 
 This is a portfolio demonstration using fictional/test business data. **Do not publish** live API tokens, Key Vault secrets, database passwords, connection strings, tenant identifiers or customer information.

@@ -77,17 +77,46 @@ The semantic model uses `PipelineRunLog` together with `goldvalidationlog`, `gol
 | Invalid ERP quantity (`0`) | Reject Silver update; record failure | ERP notebook failed validation and the monitoring report showed a failed run |
 | Corrected source and rerun | Successful end-to-end processing | Pipeline succeeded and Gold validations reported PASS |
 
-## Repository structure
+## Pipeline Monitoring Dashboard — Testing Results
 
-```text
-.
-├── README.md
-├── dashboard.png
-└── docs/
-    └── architecture-and-pipeline-notes.md  # optional future documentation
-```
+The monitoring solution was tested under both successful and failed
+pipeline execution scenarios to verify its reliability and error-handling capabilities.
 
-This repository currently documents the solution. Fabric notebook and pipeline exports can be added separately if they are safe to share.
+### 1. Successful Pipeline Execution
+
+The pipeline successfully processes source data through the Bronze,
+Silver and Gold layers.
+
+The monitoring dashboard displays:
+- Successful pipeline execution (SUCCESS)
+- Execution duration and processing metrics
+- Validation status for all six Gold tables
+- Historical pipeline success and failure rates
+
+![Successful Pipeline Execution](dashboard-success.png)
+
+### 2. Failed Pipeline Execution
+
+To test the error-handling mechanism, invalid source data was
+deliberately introduced by setting an order line quantity to zero.
+
+The validation logic detected the invalid value and stopped
+the ERP processing notebook before the Silver tables were updated.
+
+The monitoring dashboard correctly displayed:
+- Pipeline status: FAILED
+- Error message: ERP processing failed
+- Gold processing status: NOT RUN
+
+![Failed Pipeline Execution](dashboard-failure.png)
+
+### Key Outcome
+
+The solution demonstrates automated data quality validation,
+transactional processing safeguards and end-to-end pipeline monitoring.
+
+Invalid data is prevented from progressing through the pipeline,
+while operational failures remain visible in Power BI.
 
 ## Security and reproducibility
 
